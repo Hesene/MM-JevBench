@@ -10,6 +10,7 @@ datasets/processed/private/
 *.zip
 *.parquet
 !datasets/manifests/*.parquet
+!datasets/parquet/*.parquet
 
 # Publish frozen releases, not converter intermediates.
 datasets/processed/10k/*
