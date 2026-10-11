@@ -85,15 +85,23 @@ Minimal candidate and prediction representation:
 
 The following numbers are zero-shot multimodal candidate-decision accuracies. Candidate sets and input templates were held constant across the three models.
 
-| Test track | Evaluated samples | Clef | JEV-27B-VL | Clef-Flash |
-|---|---:|---:|---:|---:|
-| CMMMU | 608 | 63.9% | **65.8%** | 62.8% |
-| CCBench | 408 | 81.4% | **82.6%** | 81.4% |
-| MULTI | 3,995 | **69.2%** | 68.7% | 65.9% |
-| MMBench-Dev-CN | 931 | 91.9% | **92.7%** | 91.3% |
-| GUI action decision | 2,058 | **64.7%** | 61.4% | 48.1% |
-| **Mean accuracy across datasets (20% each)** | — | 74.22% | **74.24%** | 69.90% |
-| **Sample-weighted mean over 8,000 samples** | **8,000** | **70.90%** | 70.10% | 64.83% |
+#### Overall Leaderboard
+
+| Model | Mean accuracy across datasets<br><sub>20% per dataset</sub> | Sample-weighted mean<br><sub>8,000 test samples</sub> |
+|:---|---:|---:|
+| **JEV-27B-VL** | 🥇 **74.24%** | 70.10% |
+| **Clef** | 74.22% | 🥇 **70.90%** |
+| **Clef-Flash** | 69.90% | 64.83% |
+
+#### Per-Dataset Results
+
+| Dataset | Test samples | Clef | JEV-27B-VL | Clef-Flash |
+|:---|---:|---:|---:|---:|
+| CMMMU | 608 | 63.9% | 🥇 **65.8%** | 62.8% |
+| CCBench | 408 | 81.4% | 🥇 **82.6%** | 81.4% |
+| MULTI | 3,995 | 🥇 **69.2%** | 68.7% | 65.9% |
+| MMBench-Dev-CN | 931 | 91.9% | 🥇 **92.7%** | 91.3% |
+| GUI action decision | 2,058 | 🥇 **64.7%** | 61.4% | 48.1% |
 
 The dataset-level mean gives each of the five datasets a 20% weight so that the larger MULTI and GUI sets do not dominate the conclusion. The sample-weighted mean uses the number of test samples in each dataset. Because the provided per-dataset accuracies are rounded to one decimal place, the weighted means are approximate.
 
@@ -103,43 +111,36 @@ The following are three real samples from the test split. For readability, their
 
 #### Case 1 · General visual spatial relation
 
-<p align="center">
-  <img src="docs/assets/readme/case-mmbench-zebra.jpg" width="520" alt="MMBench-Dev-CN case: a zebra on the right side of the image">
-</p>
+<table>
+  <tr>
+    <td width="46%" align="center"><img src="docs/assets/readme/case-mmbench-zebra.jpg" width="430" alt="MMBench-Dev-CN case: a zebra on the right side of the image"><br><sub>MMBench-Dev-CN · spatial relation</sub></td>
+    <td width="54%"><strong>Question</strong><br>Where is the zebra? (<code>斑马在哪里？</code>)<br><br><strong>Candidates</strong><br>A · On the right<br>B · On the left<br>C · At the top<br>D · At the bottom<br><br><strong>Gold　A · On the right</strong></td>
+  </tr>
+</table>
 
-- **ID:** `mmjev_mmbench_dev_cn_1000`
-- **Source:** MMBench-Dev-CN
-- **Image:** `datasets/media/mmbench_dev_cn/a0/a03f851109b2cfafd34a05a5cb687dafbae5435f6f7a59df2a66f1eb30a012c8.jpg`
-- **Question:** Where is the zebra? (`斑马在哪里？`)
-- **Candidates:** A. On the right; B. On the left; C. At the top; D. At the bottom
-- **Gold:** A. On the right
+<details><summary>Sample metadata and media path</summary><br><strong>ID:</strong> <code>mmjev_mmbench_dev_cn_1000</code><br><strong>Source:</strong> MMBench-Dev-CN<br><strong>Image:</strong> <code>datasets/media/mmbench_dev_cn/a0/a03f851109b2cfafd34a05a5cb687dafbae5435f6f7a59df2a66f1eb30a012c8.jpg</code></details>
 
 #### Case 2 · Chinese exam visual reasoning
 
-<p align="center">
-  <img src="docs/assets/readme/case-multi-geography.png" width="420" alt="MULTI high-school geography case: land area and mean elevation scatter plot">
-</p>
+<table>
+  <tr>
+    <td width="46%" align="center"><img src="docs/assets/readme/case-multi-geography.png" width="360" alt="MULTI high-school geography case: land area and mean elevation scatter plot"><br><sub>MULTI · high-school geography</sub></td>
+    <td width="54%"><strong>Question</strong><br>Continent Y is <code>[MASK]</code> (<code>Y 大陆是 [MASK]</code>)<br><br><strong>Candidates</strong><br>A · Eurasia<br>B · Australia<br>C · North America<br>D · South America<br><br><strong>Gold　B · Australia</strong></td>
+  </tr>
+</table>
 
-- **ID:** `mmjev_multi_gzdl_3_1`
-- **Source:** MULTI (high-school geography)
-- **Image:** `datasets/media/multi/gzdl/3_1.png`
-- **Question:** Continent Y is `[MASK]` (`Y 大陆是 [MASK]`)
-- **Candidates:** A. Eurasia; B. Australia; C. North America; D. South America
-- **Gold:** B. Australia
+<details><summary>Sample metadata and media path</summary><br><strong>ID:</strong> <code>mmjev_multi_gzdl_3_1</code><br><strong>Source:</strong> MULTI (high-school geography)<br><strong>Image:</strong> <code>datasets/media/multi/gzdl/3_1.png</code></details>
 
 #### Case 3 · GUI next-action decision
 
-<p align="center">
-  <img src="docs/assets/readme/case-omnigui-tasty.png" width="300" alt="OmniGUI Tasty case: recipe detail screen">
-</p>
+<table>
+  <tr>
+    <td width="38%" align="center"><img src="docs/assets/readme/case-omnigui-tasty.png" width="230" alt="OmniGUI Tasty case: recipe detail screen"><br><sub>OmniGUI · Tasty · T0505 / step 0</sub></td>
+    <td width="62%"><strong>Task</strong><br>Save this recipe (<code>收藏该食谱。</code>)<br><br><strong>Question</strong><br>Based on the current multimodal state and action history, which action type should be selected next?<br><br><strong>Candidate space</strong><br>13 fixed actions: <code>WAIT</code>, <code>TAP</code>, <code>DOUBLE_TAP</code>, <code>LONG_PRESS</code>, four swipe directions, <code>INPUT</code>, <code>BACK</code>, <code>HOME</code>, <code>TASK_COMPLETE</code>, and <code>TASK_IMPOSSIBLE</code><br><br><strong>Gold　B · TAP</strong></td>
+  </tr>
+</table>
 
-- **ID:** `mmjev_omnigui_3dae6b3d0adbb2d668dd`
-- **Source:** OmniGUI (Tasty, episode `T0505`, step 0)
-- **Task:** Save this recipe (`收藏该食谱。`)
-- **Multimodal input:** Screenshot, audio, and video from the same step; screenshot path: `datasets/media/omnigui/tasty/media/T0505/1.png`
-- **Question:** Based on the current multimodal state and action history, which action type should be selected next?
-- **Candidates:** 13 fixed action types: `WAIT`, `TAP`, `DOUBLE_TAP`, `LONG_PRESS`, four swipe directions, `INPUT`, `BACK`, `HOME`, `TASK_COMPLETE`, and `TASK_IMPOSSIBLE`
-- **Gold:** B. `TAP`
+<details><summary>Sample metadata and media path</summary><br><strong>ID:</strong> <code>mmjev_omnigui_3dae6b3d0adbb2d668dd</code><br><strong>Source:</strong> OmniGUI (Tasty, episode <code>T0505</code>, step 0)<br><strong>Multimodal input:</strong> screenshot, audio, and video from the same step<br><strong>Screenshot:</strong> <code>datasets/media/omnigui/tasty/media/T0505/1.png</code></details>
 
 Only aggregate accuracy has been released so far. Per-sample candidate probabilities from the three models are not yet available, so this README does not display or infer individual model outputs for these cases. Once prediction JSONL files are released, complete candidate distributions can be added to the same cases.
 

@@ -85,15 +85,23 @@ MM-JevBench 是一个多模态候选式决策评测集。模型读取图像、�
 
 以下结果为 zero-shot 多模态候选决策准确率；同一题目的候选集合和输入模板在三个模型间保持一致。
 
-| 测试轨道 | 本次评测样本数 | Clef | JEV-27B-VL | Clef-Flash |
-|---|---:|---:|---:|---:|
-| CMMMU | 608 | 63.9% | **65.8%** | 62.8% |
-| CCBench | 408 | 81.4% | **82.6%** | 81.4% |
-| MULTI | 3,995 | **69.2%** | 68.7% | 65.9% |
-| MMBench-Dev-CN | 931 | 91.9% | **92.7%** | 91.3% |
-| GUI action decision | 2,058 | **64.7%** | 61.4% | 48.1% |
-| **各数据集平均准确率（每个数据集占 20%）** | — | 74.22% | **74.24%** | 69.90% |
-| **8,000 条样本加权平均** | **8,000** | **70.90%** | 70.10% | 64.83% |
+#### 总体榜单
+
+| 模型 | 各数据集平均准确率<br><sub>每个数据集占 20%</sub> | 8,000 条样本加权平均 |
+|:---|---:|---:|
+| **JEV-27B-VL** | 🥇 **74.24%** | 70.10% |
+| **Clef** | 74.22% | 🥇 **70.90%** |
+| **Clef-Flash** | 69.90% | 64.83% |
+
+#### 分数据集结果
+
+| 数据集 | Test 样本 | Clef | JEV-27B-VL | Clef-Flash |
+|:---|---:|---:|---:|---:|
+| CMMMU | 608 | 63.9% | 🥇 **65.8%** | 62.8% |
+| CCBench | 408 | 81.4% | 🥇 **82.6%** | 81.4% |
+| MULTI | 3,995 | 🥇 **69.2%** | 68.7% | 65.9% |
+| MMBench-Dev-CN | 931 | 91.9% | 🥇 **92.7%** | 91.3% |
+| GUI action decision | 2,058 | 🥇 **64.7%** | 61.4% | 48.1% |
 
 各数据集平均准确率是将五个数据集的准确率直接取平均，每个数据集各占 20%，用于避免样本量较大的 MULTI 和 GUI 数据集主导总体结论；样本加权平均则按各数据集的 test 样本数计算。由于输入的逐项准确率保留到小数点后一位，加权平均为据此计算的近似值。
 
@@ -103,43 +111,36 @@ MM-JevBench 是一个多模态候选式决策评测集。模型读取图像、�
 
 #### Case 1：通用视觉空间关系
 
-<p align="center">
-  <img src="docs/assets/readme/case-mmbench-zebra.jpg" width="520" alt="MMBench-Dev-CN case：斑马位于画面右侧">
-</p>
+<table>
+  <tr>
+    <td width="46%" align="center"><img src="docs/assets/readme/case-mmbench-zebra.jpg" width="430" alt="MMBench-Dev-CN case：斑马位于画面右侧"><br><sub>MMBench-Dev-CN · spatial relation</sub></td>
+    <td width="54%"><strong>问题</strong><br>斑马在哪里？<br><br><strong>候选项</strong><br>A · 它在右边<br>B · 它在左边<br>C · 它在顶部<br>D · 它在底部<br><br><strong>Gold　A · 它在右边</strong></td>
+  </tr>
+</table>
 
-- **ID**：`mmjev_mmbench_dev_cn_1000`
-- **来源**：MMBench-Dev-CN
-- **图像**：`datasets/media/mmbench_dev_cn/a0/a03f851109b2cfafd34a05a5cb687dafbae5435f6f7a59df2a66f1eb30a012c8.jpg`
-- **问题**：斑马在哪里？
-- **候选项**：A. 它在右边；B. 它在左边；C. 它在顶部；D. 它在底部
-- **Gold**：A. 它在右边
+<details><summary>样本信息与媒体路径</summary><br><strong>ID：</strong><code>mmjev_mmbench_dev_cn_1000</code><br><strong>来源：</strong>MMBench-Dev-CN<br><strong>图像：</strong><code>datasets/media/mmbench_dev_cn/a0/a03f851109b2cfafd34a05a5cb687dafbae5435f6f7a59df2a66f1eb30a012c8.jpg</code></details>
 
 #### Case 2：中文考试图文推理
 
-<p align="center">
-  <img src="docs/assets/readme/case-multi-geography.png" width="420" alt="MULTI 高中地理 case：大陆面积与平均海拔散点图">
-</p>
+<table>
+  <tr>
+    <td width="46%" align="center"><img src="docs/assets/readme/case-multi-geography.png" width="360" alt="MULTI 高中地理 case：大陆面积与平均海拔散点图"><br><sub>MULTI · 高中地理</sub></td>
+    <td width="54%"><strong>问题</strong><br>Y 大陆是 <code>[MASK]</code><br><br><strong>候选项</strong><br>A · 亚欧大陆<br>B · 澳大利亚大陆<br>C · 北美大陆<br>D · 南美大陆<br><br><strong>Gold　B · 澳大利亚大陆</strong></td>
+  </tr>
+</table>
 
-- **ID**：`mmjev_multi_gzdl_3_1`
-- **来源**：MULTI（高中地理）
-- **图像**：`datasets/media/multi/gzdl/3_1.png`
-- **问题**：Y 大陆是 `[MASK]`
-- **候选项**：A. 亚欧大陆；B. 澳大利亚大陆；C. 北美大陆；D. 南美大陆
-- **Gold**：B. 澳大利亚大陆
+<details><summary>样本信息与媒体路径</summary><br><strong>ID：</strong><code>mmjev_multi_gzdl_3_1</code><br><strong>来源：</strong>MULTI（高中地理）<br><strong>图像：</strong><code>datasets/media/multi/gzdl/3_1.png</code></details>
 
 #### Case 3：GUI 下一步动作决策
 
-<p align="center">
-  <img src="docs/assets/readme/case-omnigui-tasty.png" width="300" alt="OmniGUI Tasty case：食谱详情页面">
-</p>
+<table>
+  <tr>
+    <td width="38%" align="center"><img src="docs/assets/readme/case-omnigui-tasty.png" width="230" alt="OmniGUI Tasty case：食谱详情页面"><br><sub>OmniGUI · Tasty · T0505 / step 0</sub></td>
+    <td width="62%"><strong>任务</strong><br>收藏该食谱。<br><br><strong>问题</strong><br>根据当前多模态状态和历史动作，下一步应选择哪一种动作类型？<br><br><strong>候选空间</strong><br>13 种固定动作：<code>WAIT</code>、<code>TAP</code>、<code>DOUBLE_TAP</code>、<code>LONG_PRESS</code>、四向滑动、<code>INPUT</code>、<code>BACK</code>、<code>HOME</code>、<code>TASK_COMPLETE</code>、<code>TASK_IMPOSSIBLE</code><br><br><strong>Gold　B · TAP</strong></td>
+  </tr>
+</table>
 
-- **ID**：`mmjev_omnigui_3dae6b3d0adbb2d668dd`
-- **来源**：OmniGUI（Tasty，episode `T0505`，step 0）
-- **任务**：收藏该食谱。
-- **多模态输入**：同一步骤的界面截图、音频和视频；截图路径为 `datasets/media/omnigui/tasty/media/T0505/1.png`
-- **问题**：根据当前多模态状态和历史动作，下一步应选择哪一种动作类型？
-- **候选项**：13 种固定动作类型，包括 `WAIT`、`TAP`、`DOUBLE_TAP`、`LONG_PRESS`、四向滑动、`INPUT`、`BACK`、`HOME`、`TASK_COMPLETE` 和 `TASK_IMPOSSIBLE`
-- **Gold**：B. 点击一次（`TAP`）
+<details><summary>样本信息与媒体路径</summary><br><strong>ID：</strong><code>mmjev_omnigui_3dae6b3d0adbb2d668dd</code><br><strong>来源：</strong>OmniGUI（Tasty，episode <code>T0505</code>，step 0）<br><strong>多模态输入：</strong>同一步骤的界面截图、音频和视频<br><strong>截图：</strong><code>datasets/media/omnigui/tasty/media/T0505/1.png</code></details>
 
 当前仅发布聚合准确率，尚未获得三个模型逐样本的预测概率，因此这里不展示或推测单个 case 的模型输出。后续公开 prediction JSONL 后，可在相同 case 下补充三个模型的完整候选概率分布。
 
