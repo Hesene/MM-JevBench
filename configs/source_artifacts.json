@@ -1,0 +1,43 @@
+{
+  "CMMMU": {
+    "revision": "d7ba0c8d5b73a45a0897ec29a9e841fab8acdde2",
+    "artifacts": [
+      {"name": "art_and_design__dev-00000-of-00001.parquet", "bytes": 3132459, "sha256": "c49b667e0a7f1a131cd65cf959d5416683d15fab116d83b158e81ddfe5a092c2"},
+      {"name": "art_and_design__val-00000-of-00001.parquet", "bytes": 25473015, "sha256": "7564c675bd94b49b5a5e231d86f43dc7422a52389c544bdfed9291d719d76693"},
+      {"name": "business__dev-00000-of-00001.parquet", "bytes": 566421, "sha256": "aa17baea6d202a28559ddc5f32e8233dab854726475c1a98ab2875d872c1b1c0"},
+      {"name": "business__val.parquet", "bytes": 6115033, "sha256": "d794ec9f81c8a6f85594be2b5540ac869db5be719505448d8250216194ca9d7c"},
+      {"name": "health_and_medicine__dev-00000-of-00001.parquet", "bytes": 2849732, "sha256": "cd78e9dcc3042c190c504de41b9a204be41ab6a149bec781cd3d8ea175ac59d1"},
+      {"name": "health_and_medicine__val-00000-of-00001.parquet", "bytes": 23919395, "sha256": "3b4ee5f93d5a5737f3a76b10093fa456777e5f851179f091ed7c5e019792fdd8"},
+      {"name": "humanities_and_social_sciences__dev-00000-of-00001.parquet", "bytes": 1420015, "sha256": "f434d2058c6caf2ff21c0bde8072cb62571f4d83f51eb491f7f78829d93bcff1"},
+      {"name": "humanities_and_social_sciences__val-00000-of-00001.parquet", "bytes": 10254449, "sha256": "51384606412e6658c396e36c09dda582c9a4c8ca32278b18fc7a49b79f362239"},
+      {"name": "science__dev-00000-of-00001.parquet", "bytes": 3765950, "sha256": "41e904f052dc6af4737fea6f9dc27eadbb62ef5e1e880f480f45d9476c2718a7"},
+      {"name": "science__val-00000-of-00001.parquet", "bytes": 13680484, "sha256": "a34b4bb622f5337ac6a9bd63a9deecce1ec181ad64acacea54e463a019357f7c"},
+      {"name": "technology_and_engineering__dev-00000-of-00001.parquet", "bytes": 1524796, "sha256": "f7bfdfd6dcb6a6648b49defcccef49d0af24a89ce79df050ecece42b40211d02"},
+      {"name": "technology_and_engineering__val-00000-of-00001.parquet", "bytes": 14625717, "sha256": "58350f09d46e588fa15420e2036d2a516cdf3dfbf949fe730196771c8190e215"}
+    ]
+  },
+  "MULTI-Benchmark": {
+    "revision": "45286aa9c0ed9cac80d0435d6a371f58c460cf83",
+    "artifacts": [
+      {"name": "MULTI_v1.3.1_20251016_release.zip", "bytes": 504311784, "sha256": "db8dc676ea2258502d359c5b356d4019d94c6a6ff3eeda742d9a602d1547135f"}
+    ]
+  },
+  "OmniGUI": {
+    "revision": "2c9031077541186f6fb1f2514cb62446c811ffd4",
+    "artifacts": [
+      {"name": "merged_sorted.json", "bytes": 5026263, "sha256": "a0f2fa2cbc2313da3eeff9e416609fdee49ced8b1d730c2856bb5d709d887d16"}
+    ]
+  },
+  "MMBench-Dev-CN": {
+    "revision": "8eaac9ae42e22eaf42863b218455acd51268ba1c",
+    "artifacts": [
+      {"name": "MMBench_DEV_CN.tsv", "bytes": 37068586, "sha256": "cbf1e24febf215e719bf50f19834ccd97f80ba325b6b469c849db73c2559d959"}
+    ]
+  },
+  "CCBench": {
+    "revision": "8eaac9ae42e22eaf42863b218455acd51268ba1c",
+    "artifacts": [
+      {"name": "CCBench.tsv", "bytes": 17721846, "sha256": "32346f79272ead2e4a53a67142c100ad85d96c486f926a94343a39d24f8f3885"}
+    ]
+  }
+}

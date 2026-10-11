@@ -1,0 +1,16 @@
+{
+  "CMMMU": [
+    {
+      "source_id": "10891",
+      "reason": "cross-source duplicate of MULTI dxjsj_409_0"
+    },
+    {
+      "source_id": "12622",
+      "reason": "cross-source duplicate of MULTI dxjsj_409_0"
+    },
+    {
+      "source_id": "10917",
+      "reason": "near-duplicate question family and shared diagram with MULTI dxjsj_353_0; wording disagreement makes retention error-prone"
+    }
+  ]
+}

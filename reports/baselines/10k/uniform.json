@@ -1,0 +1,125 @@
+{
+  "split": "test",
+  "tracks": {
+    "academic_cmmmu": {
+      "n": 608,
+      "accuracy": 0.2582236842105263,
+      "accuracy_wilson95": [
+        0.2250297458763472,
+        0.2944536174010024
+      ],
+      "chance_corrected_accuracy": -0.033218785796105404,
+      "nll": 1.2973708741401608,
+      "brier_sum": 0.7179276315789473,
+      "ece_equal_mass_10": 0.08717105263157894,
+      "aurc": 0.721706744298396,
+      "invalid_or_missing": 0,
+      "invalid_rate": 0.0,
+      "group_macro": {
+        "accuracy": 0.25916666666666666,
+        "nll": 1.297340472948031,
+        "brier_sum": 0.7179166666666666,
+        "n_groups": 600
+      }
+    },
+    "culture_ccbench": {
+      "n": 408,
+      "accuracy": 0.22058823529411764,
+      "accuracy_wilson95": [
+        0.18306386793453322,
+        0.2633250394550316
+      ],
+      "chance_corrected_accuracy": -0.03921568627450981,
+      "nll": 1.3862943611198904,
+      "brier_sum": 0.75,
+      "ece_equal_mass_10": 0.07965686274509803,
+      "aurc": 0.7252536936555659,
+      "invalid_or_missing": 0,
+      "invalid_rate": 0.0,
+      "group_macro": {
+        "accuracy": 0.2202970297029703,
+        "nll": 1.3862943611198908,
+        "brier_sum": 0.75,
+        "n_groups": 404
+      }
+    },
+    "exam_multi": {
+      "n": 3995,
+      "accuracy": 0.24755944931163956,
+      "accuracy_wilson95": [
+        0.23442281445595273,
+        0.2611810946335471
+      ],
+      "chance_corrected_accuracy": -0.04443039943349336,
+      "nll": 1.3043218470622353,
+      "brier_sum": 0.7204314917456345,
+      "ece_equal_mass_10": 0.03588890875499136,
+      "aurc": 0.6868958065300059,
+      "invalid_or_missing": 0,
+      "invalid_rate": 0.0,
+      "group_macro": {
+        "accuracy": 0.24755944931163956,
+        "nll": 1.3043218470622353,
+        "brier_sum": 0.7204314917456345,
+        "n_groups": 3995
+      }
+    },
+    "general_mmbench": {
+      "n": 931,
+      "accuracy": 0.3394199785177229,
+      "accuracy_wilson95": [
+        0.3097190415192329,
+        0.3704406292155358
+      ],
+      "chance_corrected_accuracy": 0.08663366336633663,
+      "nll": 1.3074067016781903,
+      "brier_sum": 0.7232366630862872,
+      "ece_equal_mass_10": 0.07089151450053707,
+      "aurc": 0.6260457765465761,
+      "invalid_or_missing": 0,
+      "invalid_rate": 0.0,
+      "group_macro": {
+        "accuracy": 0.34391682184978273,
+        "nll": 1.3059723303463624,
+        "brier_sum": 0.7227188081936685,
+        "n_groups": 895
+      }
+    },
+    "gui_action_type": {
+      "n": 2058,
+      "accuracy": 0.11661807580174927,
+      "accuracy_wilson95": [
+        0.1034598825593017,
+        0.13120484238877245
+      ],
+      "chance_corrected_accuracy": 0.04300291545189503,
+      "nll": 2.5649493574615367,
+      "brier_sum": 0.9230769230769232,
+      "ece_equal_mass_10": 0.03969499887867234,
+      "aurc": 0.8921585038981217,
+      "invalid_or_missing": 0,
+      "invalid_rate": 0.0,
+      "group_macro": {
+        "accuracy": 0.09231029810298103,
+        "nll": 2.5649493574615367,
+        "brier_sum": 0.9230769230769232,
+        "n_groups": 574
+      }
+    }
+  },
+  "equal_track_macro": {
+    "accuracy": 0.2364818846271511,
+    "chance_corrected_accuracy": 0.002554341462824616,
+    "nll": 1.5720686282924028,
+    "brier_sum": 0.7669345418975585,
+    "ece_equal_mass_10": 0.06266066750217555,
+    "aurc": 0.7304121049857331,
+    "invalid_rate": 0.0
+  },
+  "equal_track_group_macro": {
+    "accuracy": 0.23265005312680803,
+    "nll": 1.5717756737876112,
+    "brier_sum": 0.7668287779365786
+  },
+  "note": "Macro values are equal-track diagnostics; always report each track. group_macro first averages within group_id and then weights groups equally. Missing/invalid predictions receive a worst-case gold-probability penalty."
+}

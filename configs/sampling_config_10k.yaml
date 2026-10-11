@@ -1,0 +1,42 @@
+release: MM-JevBench-10k-v1.0
+seed: MM-JevBench-10k-v1.0
+anchor_release: MM-JevBench-mini-v1.0-public3
+canonical_total: 10000
+split:
+  dev_total: 2000
+  test_total: 8000
+tracks:
+  academic_cmmmu:
+    source: CMMMU
+    target: 760
+    dev: 152
+    test: 608
+    design: eligible_choice_and_judgment_census_with_media_grouped_splits
+  exam_multi:
+    source: MULTI-Benchmark
+    target: 4994
+    dev: 999
+    test: 3995
+    design: subject_x_image_bin_x_elite_stratified_unique_problem_groups
+  gui_action_type:
+    source: OmniGUI
+    target: 2572
+    dev: 514
+    test: 2058
+    design: valid_step_census_with_episode_grouped_splits
+  general_mmbench:
+    source: MMBench-Dev-CN
+    target: 1164
+    dev: 233
+    test: 931
+    design: category_x_l2_category_stratified_without_circular_duplicates
+  culture_ccbench:
+    source: CCBench
+    target: 510
+    dev: 102
+    test: 408
+    design: category_stratified_without_circular_duplicates
+nesting:
+  preserve_anchor_ids: true
+  preserve_anchor_splits: true
+  variants_count_toward_canonical_total: false

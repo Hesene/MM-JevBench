@@ -1,0 +1,43 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.egg-info/
+work/
+datasets/raw/
+datasets/media/
+datasets/processed/private/
+*.zip
+*.parquet
+!datasets/manifests/*.parquet
+
+# Publish frozen releases, not converter intermediates.
+datasets/processed/10k/*
+!datasets/processed/10k/mmjevbench_10k.jsonl
+!datasets/processed/10k/mmjevbench_10k_public8000.jsonl
+datasets/processed/cmmmu.jsonl
+datasets/processed/multi.jsonl
+datasets/processed/omnigui.jsonl
+
+# The 10k variants file is reproducible but exceeds GitHub's 100 MB limit.
+datasets/coherence/variants.jsonl
+datasets/coherence/10k/variants.jsonl
+datasets/coherence/relations.jsonl
+datasets/manifests/*.jsonl
+
+# Keep current 10k baseline predictions; omit superseded mini predictions.
+predictions/*.jsonl
+
+# Superseded mini-release machine outputs remain local for reproducibility.
+reports/baselines/*.json
+reports/cmmmu_validation.json
+reports/coherence_variants_validation.json
+reports/cross_source_dedup.json
+reports/multi_validation.json
+reports/omnigui_validation.json
+reports/release_summary.json
+reports/sampling_summary.json
+
+# Local publication staging; upload its contents to the dataset host.
+dist/
+

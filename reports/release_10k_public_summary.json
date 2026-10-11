@@ -1,0 +1,19 @@
+{
+  "release": "MM-JevBench-10k-v1.0",
+  "records": 8000,
+  "valid": true,
+  "schema_issues": [],
+  "release_issues": [],
+  "tracks": {
+    "academic_cmmmu": 760,
+    "exam_multi": 4668,
+    "gui_action_type": 2572
+  },
+  "splits": {
+    "test": 6400,
+    "dev": 1600
+  },
+  "groups": 6128,
+  "anchor_records": 1500,
+  "anchor_ids_and_splits_preserved": 1500
+}

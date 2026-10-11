@@ -1,0 +1,30 @@
+release: MM-JevBench-mini-v1.0-public3
+seed: MM-JevBench-mini-v1.0
+canonical_total: 1500
+split:
+  dev_fraction: 0.20
+  dev_total: 300
+  test_total: 1200
+tracks:
+  cmmmu:
+    target: 500
+    eligibility: single_choice_with_image_and_source_gold
+    primary_stratum: subject
+    allocation: capped_equal
+  multi:
+    target: 500
+    eligibility: single_answer_with_at_least_one_image_and_source_gold
+    primary_stratum: subject_x_image_bin_x_elite
+    allocation: capped_square_root
+    minimum_multi_image: 100
+    minimum_elite: 100
+  omnigui:
+    target: 500
+    eligibility: one_valid_step_per_episode
+    primary_stratum: app_x_cognitive_dimension
+    allocation: capped_square_root
+coherence:
+  candidate_permutations_per_test_case: 3
+  minimum_valid_relations_per_family: 300
+  tolerance_probability_units: 0.05
+

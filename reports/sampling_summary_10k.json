@@ -1,0 +1,2005 @@
+{
+  "release": "MM-JevBench-10k-v1.0",
+  "canonical": 10000,
+  "tracks": {
+    "culture_ccbench": 510,
+    "academic_cmmmu": 760,
+    "general_mmbench": 1164,
+    "exam_multi": 4994,
+    "gui_action_type": 2572
+  },
+  "splits": {
+    "dev": 2000,
+    "test": 8000
+  },
+  "groups": 8079,
+  "group_split_audit": {
+    "leaking_group_count": 0,
+    "leaking_group_ids": [],
+    "by_track": {
+      "academic_cmmmu": {
+        "dev": {
+          "rows": 152,
+          "groups": 152
+        },
+        "test": {
+          "rows": 608,
+          "groups": 600
+        }
+      },
+      "culture_ccbench": {
+        "dev": {
+          "rows": 102,
+          "groups": 100
+        },
+        "test": {
+          "rows": 408,
+          "groups": 404
+        }
+      },
+      "exam_multi": {
+        "dev": {
+          "rows": 999,
+          "groups": 999
+        },
+        "test": {
+          "rows": 3995,
+          "groups": 3995
+        }
+      },
+      "general_mmbench": {
+        "dev": {
+          "rows": 233,
+          "groups": 226
+        },
+        "test": {
+          "rows": 931,
+          "groups": 895
+        }
+      },
+      "gui_action_type": {
+        "dev": {
+          "rows": 514,
+          "groups": 134
+        },
+        "test": {
+          "rows": 2058,
+          "groups": 574
+        }
+      }
+    }
+  },
+  "strata": [
+    {
+      "track": "academic_cmmmu",
+      "stratum": "临床医学",
+      "frame_size": 24,
+      "quota": 24,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "会计",
+      "frame_size": 9,
+      "quota": 9,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "公共卫生",
+      "frame_size": 39,
+      "quota": 39,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "农业",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "制药",
+      "frame_size": 30,
+      "quota": 30,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "化学",
+      "frame_size": 32,
+      "quota": 32,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "历史",
+      "frame_size": 26,
+      "quota": 26,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "地理",
+      "frame_size": 35,
+      "quota": 35,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "基础医学",
+      "frame_size": 25,
+      "quota": 25,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "建筑学",
+      "frame_size": 49,
+      "quota": 49,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "心理学",
+      "frame_size": 30,
+      "quota": 30,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "数学",
+      "frame_size": 35,
+      "quota": 35,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "文献学",
+      "frame_size": 7,
+      "quota": 7,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "机械工程",
+      "frame_size": 35,
+      "quota": 35,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "材料",
+      "frame_size": 41,
+      "quota": 41,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "物理",
+      "frame_size": 30,
+      "quota": 30,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "生物",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "电子学",
+      "frame_size": 25,
+      "quota": 25,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "社会学",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "管理",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "经济",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "能源和电力",
+      "frame_size": 31,
+      "quota": 31,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "艺术",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "艺术理论",
+      "frame_size": 37,
+      "quota": 37,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "营销",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "计算机科学",
+      "frame_size": 31,
+      "quota": 31,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "设计",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "诊断学与实验室医学",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "金融",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "academic_cmmmu",
+      "stratum": "音乐",
+      "frame_size": 24,
+      "quota": 24,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "culture_ccbench",
+      "stratum": "('calligraphy_painting', 'unknown')",
+      "frame_size": 57,
+      "quota": 57,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "culture_ccbench",
+      "stratum": "('cultural_relic', 'unknown')",
+      "frame_size": 97,
+      "quota": 97,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "culture_ccbench",
+      "stratum": "('food_clothes', 'unknown')",
+      "frame_size": 115,
+      "quota": 115,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "culture_ccbench",
+      "stratum": "('historical_figure', 'unknown')",
+      "frame_size": 35,
+      "quota": 35,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "culture_ccbench",
+      "stratum": "('scenery_building', 'unknown')",
+      "frame_size": 95,
+      "quota": 95,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "culture_ccbench",
+      "stratum": "('sketch_reasoning', 'unknown')",
+      "frame_size": 45,
+      "quota": 45,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "culture_ccbench",
+      "stratum": "('traditional_show', 'unknown')",
+      "frame_size": 66,
+      "quota": 66,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('化学', False, False)",
+      "frame_size": 287,
+      "quota": 287,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('化学', False, True)",
+      "frame_size": 13,
+      "quota": 13,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('化学', True, False)",
+      "frame_size": 91,
+      "quota": 91,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('化学', True, True)",
+      "frame_size": 7,
+      "quota": 7,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('历史', False, False)",
+      "frame_size": 371,
+      "quota": 371,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('历史', False, True)",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('历史', True, False)",
+      "frame_size": 5,
+      "quota": 5,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('历史', True, True)",
+      "frame_size": 3,
+      "quota": 3,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('地理', False, False)",
+      "frame_size": 287,
+      "quota": 287,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('地理', False, True)",
+      "frame_size": 12,
+      "quota": 12,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('地理', True, False)",
+      "frame_size": 6,
+      "quota": 6,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('地理', True, True)",
+      "frame_size": 2,
+      "quota": 2,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('政治', False, False)",
+      "frame_size": 342,
+      "quota": 342,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('政治', False, True)",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('数学', False, False)",
+      "frame_size": 100,
+      "quota": 100,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('数学', False, True)",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('数学', True, False)",
+      "frame_size": 42,
+      "quota": 42,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('数学', True, True)",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('物理', False, False)",
+      "frame_size": 240,
+      "quota": 240,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('物理', False, True)",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('物理', True, False)",
+      "frame_size": 44,
+      "quota": 44,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('物理', True, True)",
+      "frame_size": 8,
+      "quota": 8,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('生物', False, False)",
+      "frame_size": 347,
+      "quota": 347,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('生物', False, True)",
+      "frame_size": 7,
+      "quota": 7,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('生物', True, False)",
+      "frame_size": 9,
+      "quota": 9,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('生物', True, True)",
+      "frame_size": 3,
+      "quota": 3,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('英语', False, False)",
+      "frame_size": 2,
+      "quota": 2,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('英语', False, True)",
+      "frame_size": 1,
+      "quota": 1,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('英语', True, False)",
+      "frame_size": 1,
+      "quota": 1,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('行测', False, False)",
+      "frame_size": 1335,
+      "quota": 1157,
+      "inclusion_probability": 0.8666666666666667,
+      "analysis_weight": 1.1538461538461537
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('行测', False, True)",
+      "frame_size": 29,
+      "quota": 29,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('行测', True, False)",
+      "frame_size": 32,
+      "quota": 32,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('行测', True, True)",
+      "frame_size": 4,
+      "quota": 4,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('计算机', False, False)",
+      "frame_size": 81,
+      "quota": 81,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('计算机', False, True)",
+      "frame_size": 9,
+      "quota": 9,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('计算机', True, False)",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('计算机', True, True)",
+      "frame_size": 3,
+      "quota": 3,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('语文', False, False)",
+      "frame_size": 1,
+      "quota": 1,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('语文', False, True)",
+      "frame_size": 1,
+      "quota": 1,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('驾考', False, False)",
+      "frame_size": 1726,
+      "quota": 1315,
+      "inclusion_probability": 0.7618771726535342,
+      "analysis_weight": 1.3125475285171102
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('驾考', False, True)",
+      "frame_size": 22,
+      "quota": 22,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('驾考', True, False)",
+      "frame_size": 14,
+      "quota": 14,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "exam_multi",
+      "stratum": "('驾考', True, True)",
+      "frame_size": 4,
+      "quota": 4,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('action_recognition', 'finegrained_perception (cross-instance)')",
+      "frame_size": 54,
+      "quota": 54,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('attribute_comparison', 'finegrained_perception (cross-instance)')",
+      "frame_size": 44,
+      "quota": 44,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('attribute_recognition', 'finegrained_perception (instance-level)')",
+      "frame_size": 74,
+      "quota": 74,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('celebrity_recognition', 'finegrained_perception (instance-level)')",
+      "frame_size": 99,
+      "quota": 99,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('function_reasoning', 'attribute_reasoning')",
+      "frame_size": 79,
+      "quota": 79,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('future_prediction', 'logic_reasoning')",
+      "frame_size": 40,
+      "quota": 40,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('identity_reasoning', 'attribute_reasoning')",
+      "frame_size": 45,
+      "quota": 45,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('image_emotion', 'coarse_perception')",
+      "frame_size": 50,
+      "quota": 50,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('image_quality', 'coarse_perception')",
+      "frame_size": 53,
+      "quota": 53,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('image_scene', 'coarse_perception')",
+      "frame_size": 104,
+      "quota": 104,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('image_style', 'coarse_perception')",
+      "frame_size": 53,
+      "quota": 53,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('image_topic', 'coarse_perception')",
+      "frame_size": 36,
+      "quota": 36,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('nature_relation', 'relation_reasoning')",
+      "frame_size": 48,
+      "quota": 48,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('object_localization', 'finegrained_perception (instance-level)')",
+      "frame_size": 81,
+      "quota": 81,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('ocr', 'finegrained_perception (instance-level)')",
+      "frame_size": 39,
+      "quota": 39,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('physical_property_reasoning', 'attribute_reasoning')",
+      "frame_size": 75,
+      "quota": 75,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('physical_relation', 'relation_reasoning')",
+      "frame_size": 24,
+      "quota": 24,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('social_relation', 'relation_reasoning')",
+      "frame_size": 43,
+      "quota": 43,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('spatial_relationship', 'finegrained_perception (cross-instance)')",
+      "frame_size": 45,
+      "quota": 45,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "general_mmbench",
+      "stratum": "('structuralized_imagetext_understanding', 'logic_reasoning')",
+      "frame_size": 78,
+      "quota": 78,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'alipay')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'amazon')",
+      "frame_size": 13,
+      "quota": 13,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'bilibili')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'didi')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'douyin')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'duolingo')",
+      "frame_size": 25,
+      "quota": 25,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'gaode')",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'googletranslate')",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'imdb')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'instagram')",
+      "frame_size": 13,
+      "quota": 13,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'jd')",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'kuaishou')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'meituan')",
+      "frame_size": 25,
+      "quota": 25,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'pinduoduo')",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'qqmusic')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'redbulltv')",
+      "frame_size": 23,
+      "quota": 23,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'snapchat')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'spotify')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'taobao')",
+      "frame_size": 6,
+      "quota": 6,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'tasty')",
+      "frame_size": 22,
+      "quota": 22,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'ted')",
+      "frame_size": 24,
+      "quota": 24,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'tiktok')",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'vimeo')",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'wechat')",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'weibo')",
+      "frame_size": 23,
+      "quota": 23,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'x')",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'xiaohongshu')",
+      "frame_size": 27,
+      "quota": 27,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('cross_modal_discrimination', 'youtube')",
+      "frame_size": 38,
+      "quota": 38,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'aiqiyi')",
+      "frame_size": 9,
+      "quota": 9,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'amazon')",
+      "frame_size": 12,
+      "quota": 12,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'bilibili')",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'didi')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'douyin')",
+      "frame_size": 14,
+      "quota": 14,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'duolingo')",
+      "frame_size": 22,
+      "quota": 22,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'gaode')",
+      "frame_size": 14,
+      "quota": 14,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'googletranslate')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'imdb')",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'instagram')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'jd')",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'kuaishou')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'meituan')",
+      "frame_size": 13,
+      "quota": 13,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'pinduoduo')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'qqmusic')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'redbulltv')",
+      "frame_size": 27,
+      "quota": 27,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'snapchat')",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'spotify')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'taobao')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'ted')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'tiktok')",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'vimeo')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'wechat')",
+      "frame_size": 14,
+      "quota": 14,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'weibo')",
+      "frame_size": 22,
+      "quota": 22,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'x')",
+      "frame_size": 14,
+      "quota": 14,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'xiaohongshu')",
+      "frame_size": 22,
+      "quota": 22,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('instant_response', 'youtube')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'alipay')",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'amazon')",
+      "frame_size": 13,
+      "quota": 13,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'bilibili')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'didi')",
+      "frame_size": 13,
+      "quota": 13,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'douyin')",
+      "frame_size": 24,
+      "quota": 24,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'duolingo')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'gaode')",
+      "frame_size": 12,
+      "quota": 12,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'googletranslate')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'imdb')",
+      "frame_size": 30,
+      "quota": 30,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'instagram')",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'jd')",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'kuaishou')",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'meituan')",
+      "frame_size": 23,
+      "quota": 23,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'pinduoduo')",
+      "frame_size": 12,
+      "quota": 12,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'qqmusic')",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'redbulltv')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'snapchat')",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'spotify')",
+      "frame_size": 12,
+      "quota": 12,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'taobao')",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'tasty')",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'ted')",
+      "frame_size": 14,
+      "quota": 14,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'tiktok')",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'vimeo')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'wechat')",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'weibo')",
+      "frame_size": 23,
+      "quota": 23,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'x')",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'xiaohongshu')",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('localization', 'youtube')",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'aiqiyi')",
+      "frame_size": 12,
+      "quota": 12,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'amazon')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'bilibili')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'didi')",
+      "frame_size": 23,
+      "quota": 23,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'douyin')",
+      "frame_size": 25,
+      "quota": 25,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'duolingo')",
+      "frame_size": 12,
+      "quota": 12,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'gaode')",
+      "frame_size": 12,
+      "quota": 12,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'googletranslate')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'imdb')",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'instagram')",
+      "frame_size": 9,
+      "quota": 9,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'jd')",
+      "frame_size": 14,
+      "quota": 14,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'kuaishou')",
+      "frame_size": 32,
+      "quota": 32,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'meituan')",
+      "frame_size": 24,
+      "quota": 24,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'pinduoduo')",
+      "frame_size": 11,
+      "quota": 11,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'qqmusic')",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'redbulltv')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'snapchat')",
+      "frame_size": 37,
+      "quota": 37,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'spotify')",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'taobao')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'tasty')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'ted')",
+      "frame_size": 28,
+      "quota": 28,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'tiktok')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'vimeo')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'wechat')",
+      "frame_size": 23,
+      "quota": 23,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'weibo')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'x')",
+      "frame_size": 10,
+      "quota": 10,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'xiaohongshu')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('semantic_understanding', 'youtube')",
+      "frame_size": 24,
+      "quota": 24,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'aiqiyi')",
+      "frame_size": 35,
+      "quota": 35,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'alipay')",
+      "frame_size": 26,
+      "quota": 26,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'amazon')",
+      "frame_size": 13,
+      "quota": 13,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'bilibili')",
+      "frame_size": 15,
+      "quota": 15,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'didi')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'douyin')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'duolingo')",
+      "frame_size": 53,
+      "quota": 53,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'gaode')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'googletranslate')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'imdb')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'instagram')",
+      "frame_size": 3,
+      "quota": 3,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'jd')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'kuaishou')",
+      "frame_size": 32,
+      "quota": 32,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'meituan')",
+      "frame_size": 18,
+      "quota": 18,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'pinduoduo')",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'qqmusic')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'redbulltv')",
+      "frame_size": 22,
+      "quota": 22,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'snapchat')",
+      "frame_size": 21,
+      "quota": 21,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'spotify')",
+      "frame_size": 29,
+      "quota": 29,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'taobao')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'tasty')",
+      "frame_size": 20,
+      "quota": 20,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'ted')",
+      "frame_size": 28,
+      "quota": 28,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'tiktok')",
+      "frame_size": 23,
+      "quota": 23,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'vimeo')",
+      "frame_size": 16,
+      "quota": 16,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'wechat')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'weibo')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'x')",
+      "frame_size": 17,
+      "quota": 17,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'xiaohongshu')",
+      "frame_size": 19,
+      "quota": 19,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    },
+    {
+      "track": "gui_action_type",
+      "stratum": "('temporal_reasoning', 'youtube')",
+      "frame_size": 28,
+      "quota": 28,
+      "inclusion_probability": 1.0,
+      "analysis_weight": 1.0
+    }
+  ],
+  "media": {
+    "referenced_unique": 15718,
+    "present": 15718,
+    "bytes": 6104037654,
+    "manifest_sha256": "e73fc906bb01aed0e968f3cd4bdd5d3c3193abdd4b815fa9b42ca5f52dc935e5"
+  },
+  "data_sha256": "d0dbcafaab30baec4deed99fefa72f033fdc1a7fde934aeea2fdd15a8a7b4ce1",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.22631-SP0"
+  }
+}

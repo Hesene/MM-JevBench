@@ -1,0 +1,21 @@
+sources:
+  cmmmu:
+    repo: m-a-p/CMMMU
+    revision: d7ba0c8d5b73a45a0897ec29a9e841fab8acdde2
+    official_repo: https://github.com/CMMMU-Benchmark/CMMMU
+  multi:
+    repo: OpenDFM/MULTI-Benchmark
+    revision: 45286aa9c0ed9cac80d0435d6a371f58c460cf83
+    archive: MULTI_v1.3.1_20251016_release.zip
+    official_repo: https://github.com/OpenDFM/MULTI-Benchmark
+  omnigui:
+    repo: OmniGUI/OmniGUI
+    revision: 2c9031077541186f6fb1f2514cb62446c811ffd4
+    license: CC-BY-NC-SA-4.0
+    official_repo: https://github.com/omni-gui/OmniGUI
+  mmbench:
+    repo: open-compass/MMBench
+    revision: 8eaac9ae42e22eaf42863b218455acd51268ba1c
+    license: Apache-2.0
+    official_repo: https://github.com/open-compass/MMBench
+
