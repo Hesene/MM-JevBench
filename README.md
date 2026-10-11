@@ -1,12 +1,31 @@
+<div align="center">
+
 # MM-JevBench
 
-MM-JevBench 是一个多模态候选式决策评测集。模型读取图像、文本、音频、视频或 GUI 历史状态，并为给定候选项输出完整概率分布。
+### Benchmarking Calibrated Multimodal Choice Decisions and Jev Coherence
 
-当前发布版本为 `MM-JevBench-10k-v1.0`。
+[![Release](https://img.shields.io/badge/release-v1.0-2563eb)](https://github.com/Hesene/MM-JevBench)
+[![Samples](https://img.shields.io/badge/canonical-10%2C000-0f766e)](#dataset-scale)
+[![Test](https://img.shields.io/badge/test-8%2C000-7c3aed)](#test-accuracy)
+[![Task](https://img.shields.io/badge/task-multimodal%20decision-e11d48)](#task-design)
 
-## 数据规模
+**English** · **[简体中文](README.zh-CN.md)**
 
-| Track | 来源 | Canonical | Dev | Test | Groups |
+</div>
+
+MM-JevBench is a multimodal benchmark for candidate-based decision models. A model reads images, text, audio, video, or GUI interaction history and returns a complete probability distribution over a declared set of candidates.
+
+The current release is `MM-JevBench-10k-v1.0`.
+
+> **At a glance:** 5 data sources · 10,000 canonical samples · 2,000 dev · 8,000 test · 8,079 leakage-controlled groups
+
+## Navigation
+
+[Dataset scale](#dataset-scale) · [Task design](#task-design) · [Candidate construction](#candidate-design-and-construction) · [Model results](#evaluated-models) · [Cases](#representative-cases) · [Build protocol](#build-protocol) · [Data files](#data-files) · [Quick validation](#quick-validation)
+
+## Dataset Scale
+
+| Track | Source | Canonical | Dev | Test | Groups |
 |---|---|---:|---:|---:|---:|
 | Academic reasoning | CMMMU | 760 | 152 | 608 | 752 |
 | Chinese exam reasoning | MULTI v1.3.1 | 4,994 | 999 | 3,995 | 4,994 |
@@ -15,37 +34,37 @@ MM-JevBench 是一个多模态候选式决策评测集。模型读取图像、�
 | Chinese culture reasoning | CCBench | 510 | 102 | 408 | 504 |
 | **Total** | **5 sources** | **10,000** | **2,000** | **8,000** | **8,079** |
 
-所有 canonical 样本均为闭集选择决策。普通视觉题包含 2–7 个候选项，OmniGUI 包含 13 个固定动作类型。Gold 使用来源提供的唯一正确答案，并表示为 one-hot `outcome_distribution`；模型输出为总和等于 1 的候选概率分布。
+Every canonical sample is a closed-set choice decision. Standard visual tasks contain 2–7 candidates, while OmniGUI uses 13 fixed action types. Gold answers are the unique upstream labels represented as one-hot `outcome_distribution` values. A model must return candidate probabilities that sum to one.
 
-## 题型设计
+## Task Design
 
-| 题型 | 来源 | 数量 | 候选数 | 决策依据 |
+| Task type | Source | Samples | Candidates | Decision evidence |
 |---|---|---:|---:|---|
-| 学科视觉单选 | CMMMU | 655 | 4 | 图片、题干与学科知识 |
-| 学科视觉判断 | CMMMU | 105 | 2 | 图片、题干与学科知识 |
-| 中文考试选择 | MULTI | 4,994 | 2–7 | 图片、题干与考试知识 |
-| 通用视觉选择 | MMBench-Dev-CN | 1,164 | 2–4 | 图片与文本问题 |
-| 中华文化选择 | CCBench | 510 | 4 | 图片、文本与文化知识 |
-| GUI 下一步动作 | OmniGUI | 2,572 | 13 | 当前界面、多媒体上下文与操作历史 |
+| Academic visual multiple choice | CMMMU | 655 | 4 | Image, question, and subject knowledge |
+| Academic visual true/false | CMMMU | 105 | 2 | Image, question, and subject knowledge |
+| Chinese exam multiple choice | MULTI | 4,994 | 2–7 | Image, question, and exam knowledge |
+| General visual multiple choice | MMBench-Dev-CN | 1,164 | 2–4 | Image and text question |
+| Chinese culture multiple choice | CCBench | 510 | 4 | Image, text, and cultural knowledge |
+| GUI next-action decision | OmniGUI | 2,572 | 13 | Current interface, multimodal context, and action history |
 
-整个数据集按候选数统计为：2 项 783 题、3 项 108 题、4 项 6,534 题、5 项 2 题、7 项 1 题、13 项 2,572 题。所有题型统一为 `task_type: "choice"`，但保留 `domain`、`source.dataset` 和来源元数据，便于按能力与来源分别报告结果。
+The candidate-count distribution is: 783 two-option samples, 108 three-option samples, 6,534 four-option samples, 2 five-option samples, 1 seven-option sample, and 2,572 thirteen-option samples. Every task uses `task_type: "choice"`, while `domain`, `source.dataset`, and upstream metadata are retained for capability- and source-level reporting.
 
-## 选项设计与构造
+## Candidate Design and Construction
 
-- **来源原生选项**：CMMMU、MULTI、MMBench-Dev-CN 和 CCBench 保留上游题目的候选内容，不生成合成干扰项；仅规范化选项标记、空白和大小写。
-- **判断题规范化**：CMMMU 判断题统一为“错误（错）”与“正确（对）”两个候选，并将来源答案映射到对应索引。
-- **GUI 动作闭集化**：OmniGUI 将下一步操作映射为 13 类固定候选：`WAIT`、`TAP`、`DOUBLE_TAP`、`LONG_PRESS`、`SWIPE_UP`、`SWIPE_DOWN`、`SWIPE_LEFT`、`SWIPE_RIGHT`、`INPUT`、`BACK`、`HOME`、`TASK_COMPLETE`、`TASK_IMPOSSIBLE`。坐标、输入文本等参数保留在元数据中，不作为新的候选项。
-- **统一候选结构**：每个候选保存 `key`、`text` 和可选 `value`。普通题通常以 A/B/C 等作为 `key`；GUI 题的 `value` 保留来源动作编码。
-- **固定 canonical 顺序**：正式数据保留来源选项顺序。coherence 测试中的 `REP` 关系会确定性重排候选并同步重映射 gold，但这些变体不计入 10,000 条 canonical 样本。
-- **Gold 与模型分数**：`label_index` 和 `label_key` 指向唯一正确项，`outcome_distribution` 为来源 gold 对应的 one-hot 分布。被评测模型须为每个候选输出 `[0,1]` 内的概率，且总和为 1；当前版本不把 one-hot gold 解释为人类主观不确定性。
+- **Native upstream candidates:** CMMMU, MULTI, MMBench-Dev-CN, and CCBench retain their original candidate content. No synthetic distractors are added; only option markers, whitespace, and letter case are normalized.
+- **Normalized true/false decisions:** CMMMU true/false questions use two standardized candidates, “False” and “True,” with the upstream answer mapped to the corresponding index.
+- **Closed-set GUI actions:** OmniGUI next actions are mapped to 13 fixed candidates: `WAIT`, `TAP`, `DOUBLE_TAP`, `LONG_PRESS`, `SWIPE_UP`, `SWIPE_DOWN`, `SWIPE_LEFT`, `SWIPE_RIGHT`, `INPUT`, `BACK`, `HOME`, `TASK_COMPLETE`, and `TASK_IMPOSSIBLE`. Coordinates and typed text remain in metadata and do not create additional candidates.
+- **Unified candidate representation:** Each candidate contains a `key`, `text`, and optional `value`. Standard tasks generally use A/B/C-style keys; GUI `value` fields preserve the upstream action code.
+- **Fixed canonical order:** Canonical records preserve the upstream candidate order. The coherence suite creates deterministic permutations for `REP` relations and remaps gold labels accordingly; these variants are not counted among the 10,000 canonical samples.
+- **Gold and model scores:** `label_index` and `label_key` identify the unique correct candidate. `outcome_distribution` is a one-hot encoding of the upstream gold label. Evaluated models must assign every candidate a probability in `[0,1]`, with probabilities summing to one. The current one-hot targets should not be interpreted as human subjective uncertainty.
 
-单条候选与预测的最小形式如下：
+Minimal candidate and prediction representation:
 
 ```json
 {
   "candidates": [
-    {"key": "A", "text": "候选 A", "value": null},
-    {"key": "B", "text": "候选 B", "value": null}
+    {"key": "A", "text": "Candidate A", "value": null},
+    {"key": "B", "text": "Candidate B", "value": null}
   ],
   "label_index": 1,
   "label_key": "B",
@@ -54,94 +73,106 @@ MM-JevBench 是一个多模态候选式决策评测集。模型读取图像、�
 }
 ```
 
-## 已评测模型
+## Evaluated Models
 
-| 模型 | 参数规模 | 多模态决策方式 | 官方权重 |
+| Model | Parameters | Multimodal decision interface | Official weights |
 |---|---:|---|---|
-| [Clef](https://huggingface.co/Cloudflare/clef) | 27B | 图像/视频输入，typed questions，直接输出候选概率 | [Cloudflare/clef](https://huggingface.co/Cloudflare/clef/tree/main)（BF16 Safetensors，Apache-2.0） |
-| [JEV-27B-VL](https://huggingface.co/autotrust/JEV-27B-VL) | 27B | 文本与图像的 Jev-style choice 决策，输出完整候选概率 | [autotrust/JEV-27B-VL](https://huggingface.co/autotrust/JEV-27B-VL/tree/main)（BF16 分片权重及 decision adapter/head，Apache-2.0） |
-| [Clef-Flash](https://huggingface.co/Cloudflare/clef-flash) | 9B | 图像/视频输入，Jev/SystemOne-compatible typed decision | [Cloudflare/clef-flash](https://huggingface.co/Cloudflare/clef-flash/tree/main)（BF16 Safetensors，Apache-2.0） |
+| [Clef](https://huggingface.co/Cloudflare/clef) | 27B | Image/video input, typed questions, direct candidate probabilities | [Cloudflare/clef](https://huggingface.co/Cloudflare/clef/tree/main) (BF16 Safetensors, Apache-2.0) |
+| [JEV-27B-VL](https://huggingface.co/autotrust/JEV-27B-VL) | 27B | Jev-style text-and-image choice decisions with a complete candidate distribution | [autotrust/JEV-27B-VL](https://huggingface.co/autotrust/JEV-27B-VL/tree/main) (BF16 shards plus decision adapter/head, Apache-2.0) |
+| [Clef-Flash](https://huggingface.co/Cloudflare/clef-flash) | 9B | Image/video input with a Jev/SystemOne-compatible typed-decision interface | [Cloudflare/clef-flash](https://huggingface.co/Cloudflare/clef-flash/tree/main) (BF16 Safetensors, Apache-2.0) |
 
-### Test 准确率
+### Test Accuracy
 
-以下结果为 zero-shot 多模态候选决策准确率；同一题目的候选集合和输入模板在三个模型间保持一致。
+The following numbers are zero-shot multimodal candidate-decision accuracies. Candidate sets and input templates were held constant across the three models.
 
-| 测试轨道 | 本次评测样本数 | Clef | JEV-27B-VL | Clef-Flash |
+| Test track | Evaluated samples | Clef | JEV-27B-VL | Clef-Flash |
 |---|---:|---:|---:|---:|
 | CMMMU | 608 | 63.9% | **65.8%** | 62.8% |
 | CCBench | 408 | 81.4% | **82.6%** | 81.4% |
 | MULTI | 3,995 | **69.2%** | 68.7% | 65.9% |
 | MMBench-Dev-CN | 931 | 91.9% | **92.7%** | 91.3% |
 | GUI action decision | 2,058 | **64.7%** | 61.4% | 48.1% |
-| **各数据集平均准确率（每个数据集占 20%）** | — | 74.22% | **74.24%** | 69.90% |
-| **8,000 条样本加权平均** | **8,000** | **70.90%** | 70.10% | 64.83% |
+| **Mean accuracy across datasets (20% each)** | — | 74.22% | **74.24%** | 69.90% |
+| **Sample-weighted mean over 8,000 samples** | **8,000** | **70.90%** | 70.10% | 64.83% |
 
-各数据集平均准确率是将五个数据集的准确率直接取平均，每个数据集各占 20%，用于避免样本量较大的 MULTI 和 GUI 数据集主导总体结论；样本加权平均则按各数据集的 test 样本数计算。由于输入的逐项准确率保留到小数点后一位，加权平均为据此计算的近似值。
+The dataset-level mean gives each of the five datasets a 20% weight so that the larger MULTI and GUI sets do not dominate the conclusion. The sample-weighted mean uses the number of test samples in each dataset. Because the provided per-dataset accuracies are rounded to one decimal place, the weighted means are approximate.
 
-### 代表性 Cases
+### Representative Cases
 
-下面列出三个来自 test split 的真实样本。媒体列为下载完整媒体包后的本地相对路径；GitHub 仓库中的 Parquet 仅保存这些引用，不内嵌媒体二进制。
+The following are three real samples from the test split. For readability, their preview images are stored separately under `docs/assets/readme/`; the Parquet files still contain only relative references into the complete media package and do not embed media bytes.
 
-#### Case 1：通用视觉空间关系
+#### Case 1 · General visual spatial relation
 
-- **ID**：`mmjev_mmbench_dev_cn_1000`
-- **来源**：MMBench-Dev-CN
-- **图像**：`datasets/media/mmbench_dev_cn/a0/a03f851109b2cfafd34a05a5cb687dafbae5435f6f7a59df2a66f1eb30a012c8.jpg`
-- **问题**：斑马在哪里？
-- **候选项**：A. 它在右边；B. 它在左边；C. 它在顶部；D. 它在底部
-- **Gold**：A. 它在右边
+<p align="center">
+  <img src="docs/assets/readme/case-mmbench-zebra.jpg" width="520" alt="MMBench-Dev-CN case: a zebra on the right side of the image">
+</p>
 
-#### Case 2：中文考试图文推理
+- **ID:** `mmjev_mmbench_dev_cn_1000`
+- **Source:** MMBench-Dev-CN
+- **Image:** `datasets/media/mmbench_dev_cn/a0/a03f851109b2cfafd34a05a5cb687dafbae5435f6f7a59df2a66f1eb30a012c8.jpg`
+- **Question:** Where is the zebra? (`斑马在哪里？`)
+- **Candidates:** A. On the right; B. On the left; C. At the top; D. At the bottom
+- **Gold:** A. On the right
 
-- **ID**：`mmjev_multi_gzdl_3_1`
-- **来源**：MULTI（高中地理）
-- **图像**：`datasets/media/multi/gzdl/3_1.png`
-- **问题**：Y 大陆是 `[MASK]`
-- **候选项**：A. 亚欧大陆；B. 澳大利亚大陆；C. 北美大陆；D. 南美大陆
-- **Gold**：B. 澳大利亚大陆
+#### Case 2 · Chinese exam visual reasoning
 
-#### Case 3：GUI 下一步动作决策
+<p align="center">
+  <img src="docs/assets/readme/case-multi-geography.png" width="420" alt="MULTI high-school geography case: land area and mean elevation scatter plot">
+</p>
 
-- **ID**：`mmjev_omnigui_3dae6b3d0adbb2d668dd`
-- **来源**：OmniGUI（Tasty，episode `T0505`，step 0）
-- **任务**：收藏该食谱。
-- **多模态输入**：同一步骤的界面截图、音频和视频；截图路径为 `datasets/media/omnigui/tasty/media/T0505/1.png`
-- **问题**：根据当前多模态状态和历史动作，下一步应选择哪一种动作类型？
-- **候选项**：13 种固定动作类型，包括 `WAIT`、`TAP`、`DOUBLE_TAP`、`LONG_PRESS`、四向滑动、`INPUT`、`BACK`、`HOME`、`TASK_COMPLETE` 和 `TASK_IMPOSSIBLE`
-- **Gold**：B. 点击一次（`TAP`）
+- **ID:** `mmjev_multi_gzdl_3_1`
+- **Source:** MULTI (high-school geography)
+- **Image:** `datasets/media/multi/gzdl/3_1.png`
+- **Question:** Continent Y is `[MASK]` (`Y 大陆是 [MASK]`)
+- **Candidates:** A. Eurasia; B. Australia; C. North America; D. South America
+- **Gold:** B. Australia
 
-当前仅发布聚合准确率，尚未获得三个模型逐样本的预测概率，因此这里不展示或推测单个 case 的模型输出。后续公开 prediction JSONL 后，可在相同 case 下补充三个模型的完整候选概率分布。
+#### Case 3 · GUI next-action decision
 
-## 生成逻辑
+<p align="center">
+  <img src="docs/assets/readme/case-omnigui-tasty.png" width="300" alt="OmniGUI Tasty case: recipe detail screen">
+</p>
 
-1. **冻结来源版本**：记录每个来源的 revision、原始文件大小和 SHA-256。
-2. **统一 schema**：将题干、媒体、候选、gold、来源、抽样信息与 `group_id` 转换为统一 JSONL。
-3. **资格过滤**：只保留具有公开 gold、合法候选和有效媒体引用的样本；MMBench/CCBench 排除 CircularEval 旋转副本。
-4. **确定性抽样**：
-   - CMMMU 纳入有效单选题和判断题；
-   - MULTI 按 `subject × image_bin × Elite` 分层，从唯一 problem group 中抽取；
-   - OmniGUI 纳入全部合法 action steps；
-   - MMBench-Dev-CN 和 CCBench 使用去除旋转副本后的 canonical 集合。
-5. **分组切分**：以共享媒体、problem 或 GUI episode 为 group；同一 group 不得跨 dev/test。最终为 2,000 dev、8,000 test，跨 split group leakage 为 0。
-6. **嵌套扩展**：旧版 1,500 条 anchor 的 ID 与 split 全部保留，新增样本只从剩余抽样框确定性补入。
-7. **跨源去重**：联合使用规范化文本、图像 SHA-256 与感知哈希筛查；当前未发现必须删除的跨来源精确重复。
+- **ID:** `mmjev_omnigui_3dae6b3d0adbb2d668dd`
+- **Source:** OmniGUI (Tasty, episode `T0505`, step 0)
+- **Task:** Save this recipe (`收藏该食谱。`)
+- **Multimodal input:** Screenshot, audio, and video from the same step; screenshot path: `datasets/media/omnigui/tasty/media/T0505/1.png`
+- **Question:** Based on the current multimodal state and action history, which action type should be selected next?
+- **Candidates:** 13 fixed action types: `WAIT`, `TAP`, `DOUBLE_TAP`, `LONG_PRESS`, four swipe directions, `INPUT`, `BACK`, `HOME`, `TASK_COMPLETE`, and `TASK_IMPOSSIBLE`
+- **Gold:** B. `TAP`
 
-详细抽样方法见 [`docs/sampling_protocol_10k.md`](docs/sampling_protocol_10k.md)，来源版本见 [`docs/data_sources.md`](docs/data_sources.md)。
+Only aggregate accuracy has been released so far. Per-sample candidate probabilities from the three models are not yet available, so this README does not display or infer individual model outputs for these cases. Once prediction JSONL files are released, complete candidate distributions can be added to the same cases.
 
-## 数据文件
+## Build Protocol
 
-| 文件 | 内容 |
+1. **Pin source versions:** Record the revision, original file size, and SHA-256 for every source.
+2. **Normalize the schema:** Convert questions, media, candidates, gold labels, provenance, sampling metadata, and `group_id` into unified JSONL records.
+3. **Apply eligibility filters:** Retain only samples with public gold labels, valid candidates, and valid media references. CircularEval rotations are excluded from MMBench and CCBench.
+4. **Sample deterministically:**
+   - CMMMU includes valid multiple-choice and true/false questions.
+   - MULTI is stratified by `subject × image_bin × Elite` and sampled from unique problem groups.
+   - OmniGUI includes every valid action step.
+   - MMBench-Dev-CN and CCBench use their canonical sets after rotation duplicates are removed.
+5. **Split by group:** Shared media, problems, and GUI episodes define groups. A group may not cross dev and test. The final release contains 2,000 dev and 8,000 test records with zero cross-split group leakage.
+6. **Preserve the nested anchor:** IDs and splits from the earlier 1,500-sample anchor are retained. New samples are added deterministically from the remaining sampling frame.
+7. **Deduplicate across sources:** Normalized text, image SHA-256, and perceptual hashes are jointly screened. No cross-source exact duplicate currently requires removal.
+
+See [`docs/sampling_protocol_10k.md`](docs/sampling_protocol_10k.md) for the complete sampling protocol and [`docs/data_sources.md`](docs/data_sources.md) for pinned source versions.
+
+## Data Files
+
+| File | Contents |
 |---|---|
-| `datasets/processed/10k/mmjevbench_10k.jsonl` | 完整 10,000 条 canonical 数据 |
-| `datasets/parquet/dev.parquet` | 2,000 条 dev，适合直接加载与预览 |
-| `datasets/parquet/test.parquet` | 8,000 条 test，适合直接加载与预览 |
-| `datasets/coherence/10k/relations.jsonl` | 54,508 条 Jev coherence 关系 |
-| `datasets/manifests/10k/release_media.jsonl` | 15,718 个媒体引用及 SHA-256 |
-| `schemas/mmjevbench.schema.json` | 统一数据 schema |
+| `datasets/processed/10k/mmjevbench_10k.jsonl` | All 10,000 canonical records |
+| `datasets/parquet/dev.parquet` | 2,000 dev records for direct loading and inspection |
+| `datasets/parquet/test.parquet` | 8,000 test records for direct loading and inspection |
+| `datasets/coherence/10k/relations.jsonl` | 54,508 Jev coherence relations |
+| `datasets/manifests/10k/release_media.jsonl` | 15,718 media references with SHA-256 hashes |
+| `schemas/mmjevbench.schema.json` | Unified data schema |
 
-来源媒体总量约 6.1 GB，不直接提交 GitHub。媒体路径、哈希和重建信息保存在 manifest 与转换脚本中。超过 GitHub 单文件限制的 coherence variants 可由 canonical 数据确定性重建。
+The upstream media package is approximately 6.1 GB and is not committed to GitHub. Media paths, hashes, and reconstruction information are retained in the manifest and conversion scripts. Coherence variants that exceed GitHub's per-file limit can be rebuilt deterministically from the canonical data.
 
-## 快速验证
+## Quick Validation
 
 ```powershell
 python -m venv .venv
@@ -150,6 +181,14 @@ python -m venv .venv
 .\.venv\Scripts\python -m pytest
 ```
 
-## 数据来源与许可
+## Data Sources and Licensing
 
-数据来自 CMMMU、MULTI-Benchmark、OmniGUI、MMBench-Dev-CN 和 CCBench。代码与统一标注不会改变上游题目及媒体的原始许可；使用或再分发前请查阅 [`docs/data_sources.md`](docs/data_sources.md)。
+MM-JevBench draws from CMMMU, MULTI-Benchmark, OmniGUI, MMBench-Dev-CN, and CCBench. The unified annotations and code do not replace or alter the original licenses of upstream questions and media. Review [`docs/data_sources.md`](docs/data_sources.md) before use or redistribution.
+
+---
+
+<div align="center">
+
+**[Back to top](#mm-jevbench)** · **[简体中文](README.zh-CN.md)**
+
+</div>
