@@ -54,13 +54,63 @@ MM-JevBench 是一个多模态候选式决策评测集。模型读取图像、�
 }
 ```
 
-## 待评测模型
+## 已评测模型
 
-| 模型 | 覆盖模态 | 计划设置 | 状态 |
-|---|---|---|---|
-| [OpenJev Multimodal](https://github.com/jev-skills/openjev-multimodal)（`quality` profile） | 文本、图像；视频抽帧 | Jev-compatible `Choice` 接口；zero-shot；只在 dev 冻结输入模板，随后一次性评测 test | 待评测 |
+| 模型 | 参数规模 | 多模态决策方式 | 官方权重 |
+|---|---:|---|---|
+| [Clef](https://huggingface.co/Cloudflare/clef) | 27B | 图像/视频输入，typed questions，直接输出候选概率 | [Cloudflare/clef](https://huggingface.co/Cloudflare/clef/tree/main)（BF16 Safetensors，Apache-2.0） |
+| [JEV-27B-VL](https://huggingface.co/autotrust/JEV-27B-VL) | 27B | 文本与图像的 Jev-style choice 决策，输出完整候选概率 | [autotrust/JEV-27B-VL](https://huggingface.co/autotrust/JEV-27B-VL/tree/main)（BF16 分片权重及 decision adapter/head，Apache-2.0） |
+| [Clef-Flash](https://huggingface.co/Cloudflare/clef-flash) | 9B | 图像/视频输入，Jev/SystemOne-compatible typed decision | [Cloudflare/clef-flash](https://huggingface.co/Cloudflare/clef-flash/tree/main)（BF16 Safetensors，Apache-2.0） |
 
-OpenJev Multimodal 是面向 typed decision 的多模态 Jev-compatible 模型：每个问题只读取一个候选 token，并返回全部选项的条件概率，因此它属于本基准要评测的目标模型类型，而不是普通生成式 VLM。首轮实验固定使用 `quality` profile，并记录实际权重、量化版本、推理后端和 commit。当前实现不原生支持音频，视频仅支持抽帧输入，因此主表应同时报告全体可评样本与纯图文子集，不能把缺失模态填充后的结果表述为原生全模态能力。为避免测试集调参，输入模板和概率读取规则应在 dev 阶段冻结；GUI 轨道除 13 类动作决策外，应另行报告包含坐标与文本参数的上游 open-action 指标。
+### Test 准确率
+
+以下结果为 zero-shot 多模态候选决策准确率；同一题目的候选集合和输入模板在三个模型间保持一致。
+
+| 测试轨道 | 本次评测样本数 | Clef | JEV-27B-VL | Clef-Flash |
+|---|---:|---:|---:|---:|
+| CMMMU | 608 | 62.8% | **65.8%** | 63.9% |
+| CCBench | 408 | 81.4% | **82.6%** | 81.4% |
+| MULTI | 3,995 | 65.9% | 68.7% | **69.2%** |
+| MMBench-Dev-CN | 931 | 91.3% | **92.7%** | 91.9% |
+| GUI action decision | 2,058 | 70.7% | **73.1%** | **73.1%** |
+| **各数据集平均准确率（每个数据集占 20%）** | — | 74.42% | **76.58%** | 75.90% |
+| **8,000 条样本加权平均** | **8,000** | 70.65% | **73.11%** | 73.06% |
+
+各数据集平均准确率是将五个数据集的准确率直接取平均，每个数据集各占 20%，用于避免样本量较大的 MULTI 和 GUI 数据集主导总体结论；样本加权平均则按各数据集的 test 样本数计算。由于输入的逐项准确率保留到小数点后一位，加权平均为据此计算的近似值。
+
+### 代表性 Cases
+
+下面列出三个来自 test split 的真实样本。媒体列为下载完整媒体包后的本地相对路径；GitHub 仓库中的 Parquet 仅保存这些引用，不内嵌媒体二进制。
+
+#### Case 1：通用视觉空间关系
+
+- **ID**：`mmjev_mmbench_dev_cn_1000`
+- **来源**：MMBench-Dev-CN
+- **图像**：`datasets/media/mmbench_dev_cn/a0/a03f851109b2cfafd34a05a5cb687dafbae5435f6f7a59df2a66f1eb30a012c8.jpg`
+- **问题**：斑马在哪里？
+- **候选项**：A. 它在右边；B. 它在左边；C. 它在顶部；D. 它在底部
+- **Gold**：A. 它在右边
+
+#### Case 2：中文考试图文推理
+
+- **ID**：`mmjev_multi_gzdl_3_1`
+- **来源**：MULTI（高中地理）
+- **图像**：`datasets/media/multi/gzdl/3_1.png`
+- **问题**：Y 大陆是 `[MASK]`
+- **候选项**：A. 亚欧大陆；B. 澳大利亚大陆；C. 北美大陆；D. 南美大陆
+- **Gold**：B. 澳大利亚大陆
+
+#### Case 3：GUI 下一步动作决策
+
+- **ID**：`mmjev_omnigui_3dae6b3d0adbb2d668dd`
+- **来源**：OmniGUI（Tasty，episode `T0505`，step 0）
+- **任务**：收藏该食谱。
+- **多模态输入**：同一步骤的界面截图、音频和视频；截图路径为 `datasets/media/omnigui/tasty/media/T0505/1.png`
+- **问题**：根据当前多模态状态和历史动作，下一步应选择哪一种动作类型？
+- **候选项**：13 种固定动作类型，包括 `WAIT`、`TAP`、`DOUBLE_TAP`、`LONG_PRESS`、四向滑动、`INPUT`、`BACK`、`HOME`、`TASK_COMPLETE` 和 `TASK_IMPOSSIBLE`
+- **Gold**：B. 点击一次（`TAP`）
+
+当前仅发布聚合准确率，尚未获得三个模型逐样本的预测概率，因此这里不展示或推测单个 case 的模型输出。后续公开 prediction JSONL 后，可在相同 case 下补充三个模型的完整候选概率分布。
 
 ## 生成逻辑
 
