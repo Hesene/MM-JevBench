@@ -186,6 +186,22 @@ python -m venv .venv
 
 数据来自 CMMMU、MULTI-Benchmark、OmniGUI、MMBench-Dev-CN 和 CCBench。代码与统一标注不会改变上游题目及媒体的原始许可；使用或再分发前请查阅 [`docs/data_sources.md`](docs/data_sources.md)。
 
+## 引用
+
+如果 MM-JevBench 对你的研究有帮助，请引用本仓库：
+
+```bibtex
+@misc{mmjevbench2026,
+  title        = {MM-JevBench: Benchmarking Calibrated Multimodal Choice Decisions and Jev Coherence},
+  author       = {Hesene},
+  year         = {2026},
+  howpublished = {\url{https://github.com/Hesene/MM-JevBench}},
+  note         = {Version 1.0}
+}
+```
+
+仓库地址：<https://github.com/Hesene/MM-JevBench>
+
 ---
 
 <div align="center">

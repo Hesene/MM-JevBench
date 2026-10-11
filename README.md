@@ -186,6 +186,22 @@ python -m venv .venv
 
 MM-JevBench draws from CMMMU, MULTI-Benchmark, OmniGUI, MMBench-Dev-CN, and CCBench. The unified annotations and code do not replace or alter the original licenses of upstream questions and media. Review [`docs/data_sources.md`](docs/data_sources.md) before use or redistribution.
 
+## Citation
+
+If you use MM-JevBench in your research, please cite this repository:
+
+```bibtex
+@misc{mmjevbench2026,
+  title        = {MM-JevBench: Benchmarking Calibrated Multimodal Choice Decisions and Jev Coherence},
+  author       = {Hesene},
+  year         = {2026},
+  howpublished = {\url{https://github.com/Hesene/MM-JevBench}},
+  note         = {Version 1.0}
+}
+```
+
+Repository: <https://github.com/Hesene/MM-JevBench>
+
 ---
 
 <div align="center">
