@@ -58,9 +58,9 @@ MM-JevBench 是一个多模态候选式决策评测集。模型读取图像、�
 
 | 模型 | 覆盖模态 | 计划设置 | 状态 |
 |---|---|---|---|
-| [Qwen3-Omni-30B-A3B-Instruct](https://github.com/QwenLM/Qwen3-Omni) | 文本、图像、音频、视频 | zero-shot；只在 dev 冻结提示词与概率提取规则，随后一次性评测 test | 待评测 |
+| [OpenJev Multimodal](https://github.com/jev-skills/openjev-multimodal)（`quality` profile） | 文本、图像；视频抽帧 | Jev-compatible `Choice` 接口；zero-shot；只在 dev 冻结输入模板，随后一次性评测 test | 待评测 |
 
-该模型原生覆盖本基准涉及的主要输入模态，可作为首个统一 baseline。为避免测试集调参，模型版本、解码配置、提示模板和概率归一化方法应在 dev 阶段冻结；GUI 轨道除 13 类动作决策外，应另行报告包含坐标与文本参数的上游 open-action 指标。
+OpenJev Multimodal 是面向 typed decision 的多模态 Jev-compatible 模型：每个问题只读取一个候选 token，并返回全部选项的条件概率，因此它属于本基准要评测的目标模型类型，而不是普通生成式 VLM。首轮实验固定使用 `quality` profile，并记录实际权重、量化版本、推理后端和 commit。当前实现不原生支持音频，视频仅支持抽帧输入，因此主表应同时报告全体可评样本与纯图文子集，不能把缺失模态填充后的结果表述为原生全模态能力。为避免测试集调参，输入模板和概率读取规则应在 dev 阶段冻结；GUI 轨道除 13 类动作决策外，应另行报告包含坐标与文本参数的上游 open-action 指标。
 
 ## 生成逻辑
 
